@@ -18,34 +18,34 @@ function showRepo(user) {
     <div class="basic-infos">
         <div class="name-perfil">
             <p>${user.name}</p>
-            <p>@octocat</p>
+            <p>${user.twitter_username}</p>
         </div>
         <div class="joined">
-            <p>Joined 25 Jan 2021</p>
+            <p>${user.created_at}</p>
         </div>
     </div>
     <div class="repo-infos">
         <div class="repos">
             <p>Repos</p>
-            <p>8</p>
+            <p>${user.public_repos}</p>
         </div>
         <div class="followers">
             <p>Followers</p>
-            <p>8</p>
+            <p>${user.followers}</p>
         </div>
         <div class="following">
             <p>Following</p>
-            <p>8</p>
+            <p>${user.following}</p>
         </div>
     </div>
       <div class="additional-infos">
         <div class="additional-1">
-            <p><img src="./img/pin.png"/>San Francisco</p>
-            <p><img src="./img/link.png">https://github.blog</p>   
+            <p><img src="./img/pin.png"/>${user.location}</p>
+            <p><img src="./img/link.png">${user.blog}</p>   
         </div>
         <div class="additional-2">
-            <p><img src="./img/twitter.png">Not available</p>
-            <p><img src="./img/business-and-trade.png">@github</p>   
+            <p><img src="./img/twitter.png">${user.twitter_username}</p>
+            <p><img src="./img/business-and-trade.png">${user.company}</p>   
         </div>
 
       </div>  
@@ -57,6 +57,6 @@ function showRepo(user) {
 inputSearch.addEventListener('keyup', (e) => {
     const user = e.target.value;
     if(user.length > 0) {
-        getUser(user).then((res) => console.log(res))
+        getUser(user).then((res) => showRepo(res))
     }
 })
