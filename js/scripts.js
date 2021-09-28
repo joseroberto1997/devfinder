@@ -21,7 +21,7 @@ function showRepo(user) {
             <p>${user.twitter_username}</p>
         </div>
         <div class="joined">
-            <p>${user.created_at}</p>
+            <p>Criado em: ${user.created_at}</p>
         </div>
     </div>
     <div class="repo-infos">
